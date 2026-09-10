@@ -1,0 +1,17 @@
+@define-color theme_bg_color #07111f;
+@define-color theme_fg_color #e7f3ff;
+@define-color theme_base_color #0b1728;
+@define-color theme_text_color #e7f3ff;
+@define-color selected_bg_color #08c7e8;
+@define-color selected_fg_color #03101d;
+@define-color borders #1f4260;
+* { -GtkWidget-focus-padding: 2; -GtkWidget-focus-line-width: 1; }
+window, dialog { background-color: @theme_bg_color; color: @theme_fg_color; }
+entry, textview, spinbutton, scrollbar, frame, notebook, treeview { background-color: @theme_base_color; color: @theme_text_color; border-color: @borders; }
+button { background-image: none; background-color: #10263c; color: @theme_fg_color; border: 1px solid #24587b; border-radius: 5px; padding: 5px 10px; }
+button:hover, button:checked { background-color: #123f59; border-color: @selected_bg_color; }
+menu, menubar, popover { background-color: #09192b; color: @theme_fg_color; }
+menuitem:hover { background-color: #123f59; color: #ffffff; }
+headerbar, toolbar { background-color: #0b1b2d; color: @theme_fg_color; border-bottom: 1px solid #1d4c6b; }
+scale highlight, progressbar progress { background-color: @selected_bg_color; }
+selection { background-color: @selected_bg_color; color: @selected_fg_color; }

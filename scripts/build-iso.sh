@@ -23,6 +23,6 @@ trap cleanup_rsvg EXIT INT TERM
 lb build 2>&1 | tee "$ARTIFACTS/build.log"
 ISO=$(find "$ROOT" -maxdepth 1 -type f \( -name '*.hybrid.iso' -o -name '*.iso' \) -print -quit)
 [ -n "$ISO" ] || { echo 'ISO was not produced.' >&2; exit 1; }
-cp "$ISO" "$ARTIFACTS/mobile-linux-lab-amd64.iso"
-sha256sum "$ARTIFACTS/mobile-linux-lab-amd64.iso" > "$ARTIFACTS/mobile-linux-lab-amd64.iso.sha256"
-echo "Created $ARTIFACTS/mobile-linux-lab-amd64.iso"
+cp "$ISO" "$ARTIFACTS/drakonis-linux-amd64.iso"
+sha256sum "$ARTIFACTS/drakonis-linux-amd64.iso" > "$ARTIFACTS/drakonis-linux-amd64.iso.sha256"
+echo "Created $ARTIFACTS/drakonis-linux-amd64.iso"

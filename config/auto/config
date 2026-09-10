@@ -8,10 +8,10 @@ lb config \
   --archive-areas "main contrib non-free-firmware" \
   --debian-installer false \
   --initsystem systemd \
-  --bootappend-live "boot=live components username=analyst hostname=mobile-linux-lab quiet splash" \
-  --iso-application "Mobile Linux Lab" \
-  --iso-publisher "Mobile Linux Lab Project" \
-  --iso-volume "MLL_STABLE_X86_64" \
+  --bootappend-live "boot=live components username=analyst hostname=drakonis-linux quiet splash" \
+  --iso-application "Drakonis Linux" \
+  --iso-publisher "Drakonis Linux Project" \
+  --iso-volume "DRAKONIS_STABLE_X86_64" \
   --memtest none \
   --firmware-chroot false \
   --apt-recommends true \

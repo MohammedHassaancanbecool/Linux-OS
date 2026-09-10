@@ -1,6 +1,6 @@
 #!/bin/sh
 cat <<'EOF'
-Mobile Linux Lab safety guide
+Drakonis Linux safety guide
 
 1. Use an isolated VM and take a snapshot before testing.
 2. Prefer host-only networking for owned training targets.

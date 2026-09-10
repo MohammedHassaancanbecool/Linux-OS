@@ -1,6 +1,6 @@
-# Mobile Linux Lab
+# Drakonis Linux
 
-Mobile Linux Lab is a Debian Stable XFCE security-training distribution blueprint for **authorized defensive analysis and isolated lab work**. The original Expo application is not part of this product line; this repository is the replacement distribution build system.
+Drakonis Linux is a Debian Stable XFCE security-analysis distribution for **authorized defensive analysis and isolated lab work**. It is an independent desktop product with its own identity, themes, artwork, and security-tool profiles.
 
 The first release targets **x86_64 live ISO** and provides a documented path to an **OVA** appliance. It uses Debian packages wherever possible and does not redistribute proprietary software. Commercial tools such as Burp Suite must be installed by the operator from the vendor's official source and license terms.
 
@@ -37,7 +37,7 @@ The result is written to `artifacts/` and includes a SHA-256 checksum. The build
 
 BlackArch packages target Arch Linux and are not compatible with Debian's package graph. The Debian ISO therefore does not mix BlackArch repositories into its APT sources. When the complete BlackArch catalog is required, use the separate Arch-based profile in `profiles/blackarch/` and run `scripts/install-blackarch-tools.sh` inside that Arch VM. The helper is opt-in, verifies the official bootstrap checksum, and requires an explicit confirmation before repository changes. This avoids presenting an unstable mixture of Debian and Arch packages as a supported release.
 
-For practical Debian-native coverage, use the installable profiles in `config/package-profiles/` with `scripts/install-profile.sh`. Profiles cover network, web, passwords, wireless, forensics, and reverse engineering. The installer installs only package names available from the configured Debian repositories and reports the rest for review.
+For practical Debian-native coverage, use the installable profiles in `config/package-profiles/` with `scripts/install-profile.sh`. Profiles cover network, web, passwords, wireless, forensics, reverse engineering, and exploitation. The installer installs only package names available from the configured Debian repositories and reports the rest for review.
 
 ## OVA path
 

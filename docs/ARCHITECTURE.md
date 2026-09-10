@@ -2,7 +2,7 @@
 
 ## Decision
 
-Mobile Linux Lab is now an operating-system distribution build, not an Expo application. The source tree is intentionally declarative: `live-build` assembles a Debian Stable live image, package lists define the baseline, hooks apply small deterministic changes, and included files provide the safety boundary and user guidance.
+Drakonis Linux is now an operating-system distribution build, not an Expo application. The source tree is intentionally declarative: `live-build` assembles a Debian Stable live image, package lists define the baseline, hooks apply small deterministic changes, and included files provide the safety boundary and user guidance.
 
 ## Layers
 

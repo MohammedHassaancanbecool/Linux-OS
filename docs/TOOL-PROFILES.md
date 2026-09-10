@@ -23,3 +23,7 @@ The installer checks each package with `apt-cache`, installs packages available 
 Tools that require proprietary licensing, vendor repositories, special hardware, or a different package format are not silently embedded in the ISO. Burp Suite remains operator-installed from its official vendor. BlackArch's own repository remains isolated to the separate Arch profile.
 
 All use is restricted to systems, accounts, traffic, and data that the operator owns or is explicitly authorized to test. No profile enables automatic target discovery or external connections at first boot.
+
+## Exploitation and vulnerability research
+
+The `exploitation` profile includes `metasploit-framework`, `exploitdb`, `searchsploit`, and `set` when those packages are available from the configured Debian repositories. Metasploit is intentionally optional: the image does not mix Kali, BlackArch, or untrusted third-party APT sources into Debian. If `metasploit-framework` is unavailable, the installer reports it and the operator must use Rapid7's official package and licensing instructions in an isolated authorized lab.

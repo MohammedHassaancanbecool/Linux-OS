@@ -1,6 +1,6 @@
 # BlackArch complete-tool profile
 
-BlackArch is an **Arch Linux-based** repository. Its packages cannot be installed safely as Debian `.deb` packages, and the BlackArch repository must not be added to the Debian Mobile Linux Lab image.
+BlackArch is an **Arch Linux-based** repository. Its packages cannot be installed safely as Debian `.deb` packages, and the BlackArch repository must not be added to the Debian Drakonis Linux image.
 
 The official BlackArch project documents a repository group named `blackarch` that can install the complete tool set on an Arch system. This repository therefore keeps the Debian XFCE image stable and provides `scripts/install-blackarch-tools.sh` as an explicit, opt-in helper for a separate Arch-based VM or build profile.
 
@@ -10,7 +10,7 @@ Use one of these supported layouts:
 
 | Layout | Recommendation |
 |---|---|
-| Debian Mobile Linux Lab + selected Debian tools | Default, smaller and easier to update |
+| Debian Drakonis Linux + selected Debian tools | Default, smaller and easier to update |
 | Separate Arch/BlackArch VM | Use when the complete BlackArch package group is required |
 | Dual-VM lab | Recommended for comparison and isolation |
 

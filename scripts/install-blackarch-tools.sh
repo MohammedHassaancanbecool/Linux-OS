@@ -4,7 +4,7 @@ set -eu
 if ! command -v pacman >/dev/null 2>&1; then
   cat >&2 <<'EOF'
 This helper is for an Arch Linux / BlackArch base only.
-It is intentionally not executable on Mobile Linux Lab Debian.
+It is intentionally not executable on Drakonis Linux Debian.
 Debian and Arch packages are not interchangeable; do not add BlackArch
 repositories to Debian because that can corrupt the package graph.
 

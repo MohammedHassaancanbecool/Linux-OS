@@ -1,0 +1,8 @@
+active_text_color=#e7f3ff
+inactive_text_color=#7894aa
+active_text_shadow_color=#07111f
+inactive_text_shadow_color=#07111f
+button_offset=1
+full_width_title=true
+title_alignment=left
+title_font=Sans Bold 10

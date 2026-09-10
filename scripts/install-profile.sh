@@ -3,8 +3,8 @@ set -eu
 ROOT=$(CDPATH= cd -- "$(dirname -- "$0")/.." && pwd)
 PROFILE=${1:-}
 case "$PROFILE" in
-  network|web|passwords|wireless|forensics|reverse) ;;
-  *) echo "Usage: sudo $0 {network|web|passwords|wireless|forensics|reverse}" >&2; exit 2;;
+  network|web|passwords|wireless|forensics|reverse|exploitation) ;;
+  *) echo "Usage: sudo $0 {network|web|passwords|wireless|forensics|reverse|exploitation}" >&2; exit 2;;
 esac
 [ "$(id -u)" -eq 0 ] || { echo 'Run with sudo.' >&2; exit 1; }
 command -v apt-get >/dev/null 2>&1 || { echo 'This profile installer requires Debian/Ubuntu apt.' >&2; exit 1; }

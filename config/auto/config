@@ -1,0 +1,18 @@
+#!/bin/sh
+set -e
+lb config \
+  --mode debian \
+  --distribution stable \
+  --architectures amd64 \
+  --binary-images iso-hybrid \
+  --archive-areas "main contrib non-free-firmware" \
+  --debian-installer live \
+  --debian-installer-gui true \
+  --bootappend-live "boot=live components username=analyst hostname=mobile-linux-lab quiet splash" \
+  --iso-application "Mobile Linux Lab" \
+  --iso-publisher "Mobile Linux Lab Project" \
+  --iso-volume "MLL_STABLE_X86_64" \
+  --memtest none \
+  --apt-recommends true \
+  --apt-indices false \
+  --security false

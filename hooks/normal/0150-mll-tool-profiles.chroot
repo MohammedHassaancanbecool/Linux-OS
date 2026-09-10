@@ -1,0 +1,4 @@
+#!/bin/sh
+set -eu
+chmod 0755 /usr/local/bin/mll-install-profile
+chmod 0644 /usr/local/share/mll/package-profiles/*.list

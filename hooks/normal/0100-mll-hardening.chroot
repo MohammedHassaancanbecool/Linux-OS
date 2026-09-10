@@ -1,0 +1,14 @@
+#!/bin/sh
+set -eu
+chmod 0755 /usr/local/bin/mll-help /usr/local/bin/mll-network-isolation
+printf '%s\n' 'analyst ALL=(ALL) NOPASSWD: /usr/local/bin/mll-network-isolation' > /etc/sudoers.d/mll-isolation
+chmod 0440 /etc/sudoers.d/mll-isolation
+install -d -m 0755 /etc/mll
+cat > /etc/mll/release <<'EOF'
+name=Mobile Linux Lab
+version=0.1.0-builder
+base=Debian Stable
+architecture=amd64
+desktop=XFCE
+profile=authorized-defensive-analysis
+EOF

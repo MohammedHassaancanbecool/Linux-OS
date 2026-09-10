@@ -1,0 +1,15 @@
+#!/bin/sh
+cat <<'EOF'
+Mobile Linux Lab safety guide
+
+1. Use an isolated VM and take a snapshot before testing.
+2. Prefer host-only networking for owned training targets.
+3. Do not scan, brute-force, intercept, or exploit systems without written authorization.
+4. Read each tool's local manual before use: man nmap, man tcpdump, man hydra.
+5. Burp Suite is not redistributed. Obtain it directly from its official vendor.
+
+Profiles:
+  mll-network-isolation status
+  mll-network-isolation enable   # blocks non-loopback traffic with nftables
+  mll-network-isolation disable  # requires root and explicit confirmation
+EOF

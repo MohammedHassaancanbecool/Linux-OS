@@ -1,0 +1,17 @@
+gdb
+gdb-multiarch
+radare2
+cutter
+ghidra
+binutils
+llvm
+clang
+lldb
+strace
+ltrace
+patchelf
+checksec
+python3-capstone
+python3-keystone
+python3-unicorn
+yara

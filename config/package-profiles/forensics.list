@@ -1,0 +1,17 @@
+sleuthkit
+autopsy
+foremost
+scalpel
+binwalk
+bulk-extractor
+exiftool
+clamav
+clamav-daemon
+yara-python
+python3-volatility3
+volatility3
+libimage-exiftool-perl
+strings
+file
+hexedit
+xxd

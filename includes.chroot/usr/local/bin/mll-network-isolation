@@ -1,0 +1,23 @@
+#!/bin/sh
+set -eu
+case "${1:-status}" in
+  status)
+    if command -v nft >/dev/null 2>&1; then nft list ruleset 2>/dev/null | sed -n '1,80p' || true; else echo 'nftables is not installed'; fi
+    ;;
+  enable)
+    [ "$(id -u)" -eq 0 ] || { echo 'Run as root.' >&2; exit 1; }
+    nft add table inet mll_isolation 2>/dev/null || true
+    nft 'add chain inet mll_isolation output { type filter hook output priority 0; policy drop; }' 2>/dev/null || true
+    nft add rule inet mll_isolation output oifname lo accept 2>/dev/null || true
+    echo 'Isolation enabled: only loopback output is allowed.'
+    ;;
+  disable)
+    [ "$(id -u)" -eq 0 ] || { echo 'Run as root.' >&2; exit 1; }
+    printf 'Type DISABLE-ISOLATION to continue: '
+    read answer
+    [ "$answer" = 'DISABLE-ISOLATION' ] || { echo 'Cancelled.'; exit 1; }
+    nft delete table inet mll_isolation 2>/dev/null || true
+    echo 'Isolation rules removed. Confirm your lab network is authorized.'
+    ;;
+  *) echo 'Usage: mll-network-isolation {status|enable|disable}' >&2; exit 2;;
+esac

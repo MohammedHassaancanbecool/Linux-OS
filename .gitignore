@@ -1,0 +1,19 @@
+# live-build generated state
+.build/
+cache/
+chroot/
+binary/
+config/binary
+config/bootstrap
+config/chroot
+config/common
+config/source
+artifacts/build.log
+artifacts/*.iso
+*.hybrid.iso
+*.iso
+*.zsync.xz
+binary.contents
+binary.packages
+chroot.headers
+chroot.packages.*

@@ -13,7 +13,7 @@ The first release targets **x86_64 live ISO** and provides a documented path to 
 | Debian Stable base | Configured through `live-build` |
 | XFCE desktop | Configured |
 | Offline-safe boot notice | Configured |
-| Local analyst utilities | Nmap, Wireshark/TShark, SQLMap, Hydra, Nikto, Gobuster, John, Hashcat, netcat, tcpdump, Ghidra availability is documented |
+| Local analyst utilities | Nmap, Wireshark/TShark, SQLMap, Hydra, Gobuster, John, Hashcat, netcat, tcpdump; optional profiles cover additional utilities |
 | Web testing | OWASP ZAP package availability is checked during build; Burp Suite is operator-installed |
 | Exploitation frameworks | Metasploit is not silently bundled; an explicit opt-in profile is provided where a trusted package source is available |
 | ISO | `scripts/build-iso.sh` |
@@ -22,11 +22,11 @@ The first release targets **x86_64 live ISO** and provides a documented path to 
 
 ## Build requirements
 
-Build on a Debian Stable or Ubuntu host with root access, internet access, at least 30 GB free disk, and at least 8 GB RAM. The build host must have `live-build`, `debootstrap`, `xorriso`, and `qemu-utils`. The repository does not require Node.js.
+Build on a Debian Stable or Ubuntu host with root access, internet access, at least 30 GB free disk, and at least 8 GB RAM. The build host must have `live-build`, `debootstrap`, `xorriso`, `isolinux`, and `qemu-utils`. The repository includes a local Syslinux bootloader template to work around older live-build path assumptions. The repository does not require Node.js.
 
 ```bash
 sudo apt-get update
-sudo apt-get install -y live-build debootstrap xorriso qemu-utils git ca-certificates
+sudo apt-get install -y live-build debootstrap xorriso isolinux qemu-utils git ca-certificates
 ./scripts/check-project.sh
 sudo ./scripts/build-iso.sh
 ```

@@ -1,0 +1,24 @@
+#!/bin/sh
+set -eu
+# live-build calls the old rsvg CLI as:
+#   rsvg --format png --height H --width W input.svg output.png
+# Debian Stable ships rsvg-convert instead.
+format=png
+height=
+width=
+input=
+output=
+while [ "$#" -gt 0 ]; do
+  case "$1" in
+    --format) format=$2; shift 2;;
+    --height) height=$2; shift 2;;
+    --width) width=$2; shift 2;;
+    -*) echo "Unsupported rsvg option: $1" >&2; exit 2;;
+    *) if [ -z "$input" ]; then input=$1; else output=$1; fi; shift;;
+  esac
+done
+[ -n "$input" ] && [ -n "$output" ] || { echo 'rsvg wrapper expects input and output files' >&2; exit 2; }
+set -- -f "$format"
+[ -n "$height" ] && set -- "$@" -h "$height"
+[ -n "$width" ] && set -- "$@" -w "$width"
+exec /usr/bin/rsvg-convert "$@" -o "$output" "$input"

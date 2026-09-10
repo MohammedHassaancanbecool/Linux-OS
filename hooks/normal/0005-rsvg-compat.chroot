@@ -1,0 +1,6 @@
+#!/bin/sh
+set -eu
+if command -v rsvg-convert >/dev/null 2>&1 && ! command -v rsvg >/dev/null 2>&1; then
+  install -d -m 0755 /usr/local/bin
+  ln -sf "$(command -v rsvg-convert)" /usr/local/bin/rsvg
+fi

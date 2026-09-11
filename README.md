@@ -22,11 +22,11 @@ The first release targets **x86_64 live ISO** and provides a documented path to 
 
 ## Build requirements
 
-Build on a Debian Stable or Ubuntu host with root access, internet access, at least 30 GB free disk, and at least 8 GB RAM. The build host must have `live-build`, `debootstrap`, `xorriso`, `isolinux`, and `qemu-utils`. The repository includes a local Syslinux bootloader template to work around older live-build path assumptions. The repository does not require Node.js.
+Build on a Debian Stable or Ubuntu host with root access, internet access, at least 30 GB free disk, and at least 8 GB RAM. The build host must have `live-build`, `debootstrap`, `xorriso`, `isolinux`, `grub-efi-amd64-bin`, `dosfstools`, and `mtools`. The repository includes local Syslinux modules and an EFI GRUB image step to work around older live-build path assumptions. The repository does not require Node.js.
 
 ```bash
 sudo apt-get update
-sudo apt-get install -y live-build debootstrap xorriso isolinux qemu-utils git ca-certificates
+sudo apt-get install -y live-build debootstrap xorriso isolinux grub-efi-amd64-bin dosfstools mtools qemu-utils git ca-certificates
 ./scripts/check-project.sh
 sudo ./scripts/build-iso.sh
 ```

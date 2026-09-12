@@ -14,10 +14,12 @@ The first release targets **x86_64 live ISO** and provides a documented path to 
 | XFCE desktop | Configured |
 | Offline-safe boot notice | Configured |
 | Local analyst utilities | Nmap, Wireshark/TShark, SQLMap, Hydra, Gobuster, John, Hashcat, netcat, tcpdump; optional profiles cover additional utilities |
+| Authorized Red Team profile | Optional Debian-native `redteam` profile for adversary simulation across network, web, identity, proxy, and password-audit workflows |
 | Web testing | OWASP ZAP package availability is checked during build; Burp Suite is operator-installed |
 | Exploitation frameworks | Metasploit is not silently bundled; an explicit opt-in profile is provided where a trusted package source is available |
 | ISO | `scripts/build-iso.sh` |
 | OVA | `scripts/build-ova.sh`, requires a VM image builder such as VirtualBox or Packer |
+| Desktop identity | Indigo/Cyan/Violet DRAKONIS-Night theme, Graphite terminal transparency, branded wallpaper and LightDM greeter |
 | Automated checks | `scripts/check-project.sh` |
 
 ## Build requirements
@@ -38,6 +40,8 @@ The result is written to `artifacts/` and includes a SHA-256 checksum. The build
 BlackArch packages target Arch Linux and are not compatible with Debian's package graph. The Debian ISO therefore does not mix BlackArch repositories into its APT sources. When the complete BlackArch catalog is required, use the separate Arch-based profile in `profiles/blackarch/` and run `scripts/install-blackarch-tools.sh` inside that Arch VM. The helper is opt-in, verifies the official bootstrap checksum, and requires an explicit confirmation before repository changes. This avoids presenting an unstable mixture of Debian and Arch packages as a supported release.
 
 For practical Debian-native coverage, use the installable profiles in `config/package-profiles/` with `scripts/install-profile.sh`. Profiles cover network, web, passwords, wireless, forensics, reverse engineering, and exploitation. The installer installs only package names available from the configured Debian repositories and reports the rest for review.
+
+For authorized red-team and adversary-simulation labs, install the optional `redteam` profile. It is intentionally not a Kali repository mirror: it resolves only packages available from the configured Debian repositories, reports unavailable names, and does not enable persistence, evasion, credential theft, payload delivery, or automatic target activity.
 
 ## OVA path
 

@@ -1,0 +1,30 @@
+# Optional authorized red-team and adversary-simulation utilities.
+# General-purpose packages only; no persistence, evasion, credential theft,
+# payloads, or third-party APT repositories are added by this profile.
+nmap
+masscan
+netcat-openbsd
+socat
+proxychains4
+openvpn
+wireguard-tools
+smbclient
+samba-common-bin
+ldap-utils
+krb5-user
+python3-impacket
+python3-scapy
+responder
+enum4linux
+whatweb
+ffuf
+gobuster
+nikto
+sqlmap
+hydra
+john
+hashcat
+crackmapexec
+mitmproxy
+exploitdb
+searchsploit

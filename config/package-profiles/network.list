@@ -19,7 +19,6 @@ snmp
 snmp-mibs-downloader
 onesixtyone
 ike-scan
-ike-scan
 proxychains4
 openvpn
 wireguard-tools

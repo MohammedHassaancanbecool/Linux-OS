@@ -1,0 +1,17 @@
+#!/bin/sh
+set -eu
+printf '\033[1;36mPower & Session\033[0m\n\n'
+printf '1) Lock screen\n2) Suspend\n3) Log out\n4) Restart\n5) Shut down\nChoose: '
+read choice
+case "$choice" in
+  1) command -v xflock4 >/dev/null 2>&1 && xflock4 || loginctl lock-session ;;
+  2) systemctl suspend ;;
+  3) xfce4-session-logout --logout ;;
+  4|5)
+    action=restart; [ "$choice" = 5 ] && action=poweroff
+    printf 'Type CONFIRM-%s to continue: ' "$(printf '%s' "$action" | tr '[:lower:]' '[:upper:]')"
+    read confirmation
+    [ "$confirmation" = "CONFIRM-$(printf '%s' "$action" | tr '[:lower:]' '[:upper:]')" ] || { printf 'Cancelled.\n'; exit 1; }
+    systemctl "$action" ;;
+  *) printf 'Cancelled.\n' ;;
+esac

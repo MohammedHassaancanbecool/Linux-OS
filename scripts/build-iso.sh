@@ -13,18 +13,27 @@ command -v mcopy >/dev/null 2>&1 || { echo 'mtools is required.' >&2; exit 1; }
 [ -f /usr/lib/ISOLINUX/isohdpfx.bin ] || { echo 'isolinux isohdpfx.bin is required.' >&2; exit 1; }
 cd "$ROOT"
 ./scripts/check-project.sh
-rm -rf config/binary config/bootstrap config/chroot config/common config/source .build cache chroot binary
-rm -f "$ROOT"/*.iso "$ROOT"/*.hybrid.iso
-chmod +x config/auto/config hooks/normal/*.chroot scripts/add-uefi-boot.sh includes.chroot/usr/local/bin/mll-help includes.chroot/usr/local/bin/mll-install-profile includes.chroot/usr/local/bin/mll-network-isolation includes.chroot/usr/local/bin/drakonis-install-profile
-config/auto/config
-RSVG_LINK_CREATED=false
-if ! command -v rsvg >/dev/null 2>&1; then
-  ln -s "$(command -v rsvg-convert)" /usr/local/bin/rsvg
-  RSVG_LINK_CREATED=true
+if [ -d "$ROOT/chroot" ]; then
+  umount -R "$ROOT/chroot/sys" 2>/dev/null || true
+  umount -R "$ROOT/chroot/proc" 2>/dev/null || true
+  umount -R "$ROOT/chroot/dev" 2>/dev/null || true
+  umount -l "$ROOT/chroot/dev/pts" 2>/dev/null || true
+  umount -l "$ROOT/chroot/dev" 2>/dev/null || true
 fi
-cleanup_rsvg() { if [ "$RSVG_LINK_CREATED" = true ]; then rm -f /usr/local/bin/rsvg; fi; }
-trap cleanup_rsvg EXIT INT TERM
-lb build 2>&1 | tee "$ARTIFACTS/build.log"
+rm -rf config/binary config/bootstrap config/chroot config/common config/source .build .lock cache binary
+rm -rf chroot
+rm -f "$ROOT"/*.iso "$ROOT"/*.hybrid.iso
+chmod +x config/auto/config hooks/normal/*.chroot scripts/add-uefi-boot.sh includes.chroot/usr/local/bin/mll-help includes.chroot/usr/local/bin/mll-release includes.chroot/usr/local/bin/mll-install-profile includes.chroot/usr/local/bin/mll-network-isolation includes.chroot/usr/local/bin/drakonis-install-profile includes.chroot/usr/local/bin/drakonis-security-center includes.chroot/usr/local/bin/drakonis-network-tools includes.chroot/usr/local/bin/drakonis-help-center includes.chroot/usr/local/bin/drakonis-themes-manager includes.chroot/usr/local/bin/drakonis-first-run includes.chroot/usr/local/bin/drakonis-power-session includes.chroot/usr/local/bin/drakonis-control-center includes.chroot/usr/local/bin/drakonis-vault includes.chroot/usr/local/bin/drakonis-vault-ui includes.chroot/usr/local/libexec/drakonis-center.py includes.chroot/usr/local/libexec/drakonis-vault.py includes.chroot/usr/local/libexec/drakonis-vault-ui.py
+config/auto/config
+COMPAT_BIN=$(mktemp -d)
+cleanup_compat() { rm -rf "$COMPAT_BIN"; }
+trap cleanup_compat EXIT INT TERM
+if ! command -v rsvg >/dev/null 2>&1; then
+  ln -s "$(command -v rsvg-convert)" "$COMPAT_BIN/rsvg"
+  PATH="$COMPAT_BIN:$PATH" lb build 2>&1 | tee "$ARTIFACTS/build.log"
+else
+  lb build 2>&1 | tee "$ARTIFACTS/build.log"
+fi
 ISO=$(find "$ROOT" -maxdepth 1 -type f \( -name '*.hybrid.iso' -o -name '*.iso' \) -print -quit)
 [ -n "$ISO" ] || { echo 'ISO was not produced.' >&2; exit 1; }
 BASE_ISO="$ARTIFACTS/.drakonis-linux-bios.iso"

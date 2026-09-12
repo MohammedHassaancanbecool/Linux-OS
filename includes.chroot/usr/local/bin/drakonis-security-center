@@ -1,0 +1,13 @@
+#!/bin/sh
+set -eu
+printf '\033[1;36mDrakonis Security Center\033[0m\n\n'
+printf 'Release: '; cat /etc/mll/release 2>/dev/null | sed -n '1,4p' || printf 'unknown\n'
+printf '\n\033[1;35mNetwork isolation\033[0m\n'
+if nft list table inet mll_isolation >/dev/null 2>&1; then printf 'Status: ENABLED (loopback-only policy)\n'; else printf 'Status: not enabled\n'; fi
+printf '\n\033[1;35mFirewall rules\033[0m\n'
+nft list ruleset 2>/dev/null | sed -n '1,24p' || printf 'nftables unavailable\n'
+printf '\n\033[1;35mSystem\033[0m\n'
+printf 'Disk: '; df -h / | awk 'NR==2 {print $5 " used"}'
+printf 'Memory: '; free -h 2>/dev/null | awk '/Mem:/ {print $3 " / " $2}' || true
+printf '\nUse mll-network-isolation enable before working with untrusted samples.\n'
+printf 'Press Enter to close... '; read _

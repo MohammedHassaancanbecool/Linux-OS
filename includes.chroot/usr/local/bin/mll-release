@@ -1,0 +1,8 @@
+#!/bin/sh
+set -eu
+if [ -f /etc/mll/release ]; then
+  cat /etc/mll/release
+else
+  printf '%s\n' 'Drakonis release metadata is not installed.' >&2
+  exit 1
+fi

@@ -13,6 +13,9 @@ artifacts/*.iso
 *.hybrid.iso
 *.iso
 *.zsync.xz
+*.zsync
+__pycache__/
+docs/reference/*.pdf
 binary.contents
 binary.packages
 chroot.headers

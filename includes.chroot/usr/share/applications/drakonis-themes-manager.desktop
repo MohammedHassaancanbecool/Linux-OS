@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Drakonis Themes Manager
+Name[ar]=مدير سمات Drakonis
+Comment=Choose the installed Drakonis desktop theme
+Exec=xfce4-terminal --command=/usr/local/bin/drakonis-themes-manager
+Icon=drakonis-linux
+Terminal=false
+Type=Application
+Categories=Drakonis;Settings;DesktopSettings;

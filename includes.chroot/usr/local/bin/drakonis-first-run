@@ -1,0 +1,12 @@
+#!/bin/sh
+set -eu
+MARKER="$HOME/.config/drakonis/first-run-complete"
+if [ -e "$MARKER" ]; then exit 0; fi
+mkdir -p "$(dirname "$MARKER")"
+printf '\033[1;36mWelcome to Drakonis Linux\033[0m\n\n'
+printf 'Your desktop uses the Drakonis Indigo, Cyan, Violet, and Graphite visual system.\n\n'
+printf '\033[1;35mBefore authorized lab work:\033[0m\n'
+printf '  1. Use a disposable VM snapshot.\n  2. Prefer host-only or isolated networking.\n  3. Enable mll-network-isolation for untrusted samples.\n  4. Keep written authorization and scope.\n\n'
+printf 'Open Help Center now? [Y/n] '; read answer
+case "$answer" in n|N) ;; *) /usr/local/bin/drakonis-help-center ;; esac
+: > "$MARKER"

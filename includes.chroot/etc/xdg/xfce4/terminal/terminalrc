@@ -1,0 +1,13 @@
+[Configuration]
+FontName=Monospace 10
+ColorForeground=#F2F6FF
+ColorBackground=#0B1224
+ColorCursor=#00D9FF
+ColorBold=#00D9FF
+ColorPalette=#0B1224;#FF4D68;#19D3AE;#7B3FF2;#283B9F;#7B3FF2;#00D9FF;#F2F6FF;#52648F;#FF6B7F;#42E6C2;#A77BFF;#4B7BFF;#B08BFF;#6CEBFF;#FFFFFF
+BackgroundMode=TERMINAL_BACKGROUND_TRANSPARENT
+BackgroundDarkness=0.86
+MiscBell=FALSE
+MiscCursorBlinks=FALSE
+MiscUseXtermTitle=FALSE
+ScrollingUnlimited=TRUE

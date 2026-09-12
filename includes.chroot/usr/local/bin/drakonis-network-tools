@@ -1,0 +1,9 @@
+#!/bin/sh
+set -eu
+printf '\033[1;36mDrakonis Network Tools\033[0m\n\n'
+printf '\033[1;35mInterfaces\033[0m\n'; ip -brief address 2>/dev/null || true
+printf '\n\033[1;35mRoutes\033[0m\n'; ip route 2>/dev/null || true
+printf '\n\033[1;35mDNS\033[0m\n'; resolvectl status 2>/dev/null | sed -n '1,18p' || cat /etc/resolv.conf
+printf '\n\033[1;35mListening sockets\033[0m\n'; ss -lntup 2>/dev/null | sed -n '1,20p' || true
+printf '\nNo target discovery is run automatically. Use tools only within written scope.\n'
+printf 'Press Enter to close... '; read _

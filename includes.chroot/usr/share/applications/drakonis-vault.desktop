@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Drakonis Vault
+Name[ar]=خزينة أدلة Drakonis
+Comment=Manage local cases, evidence hashes, and sealed records
+Exec=/usr/local/bin/drakonis-vault-ui
+Icon=drakonis-linux
+Terminal=false
+Type=Application
+Categories=Drakonis;Security;Utility;
+Keywords=evidence;case;sha256;forensics;integrity;

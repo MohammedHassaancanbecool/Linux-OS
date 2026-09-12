@@ -3,8 +3,8 @@ set -eu
 ROOT=$(CDPATH= cd -- "$(dirname -- "$0")/.." && pwd)
 PROFILE=${1:-}
 case "$PROFILE" in
-  network|web|passwords|wireless|forensics|reverse) ;;
-  *) echo "Usage: sudo $0 {network|web|passwords|wireless|forensics|reverse}" >&2; exit 2;;
+  network|web|passwords|wireless|forensics|reverse|exploitation|redteam) ;;
+  *) echo "Usage: sudo $0 {network|web|passwords|wireless|forensics|reverse|exploitation|redteam}" >&2; exit 2 ;;
 esac
 [ "$(id -u)" -eq 0 ] || { echo 'Run with sudo.' >&2; exit 1; }
 command -v apt-get >/dev/null 2>&1 || { echo 'This profile installer requires Debian/Ubuntu apt.' >&2; exit 1; }
@@ -19,15 +19,17 @@ apt-get update
 available=''
 missing=''
 while IFS= read -r package; do
+  package=${package%%#*}
+  package=$(printf '%s' "$package" | tr -d '[:space:]')
   [ -n "$package" ] || continue
-  case "$package" in \#*) continue;; esac
-  if apt-cache show "$package" >/dev/null 2>&1; then
+  if apt-cache policy "$package" 2>/dev/null | awk '$1 == "Candidate:" && $2 != "(none)" { found=1 } END { exit !found }'; then
     available="$available $package"
   else
     missing="$missing $package"
   fi
 done < "$LIST"
 if [ -n "$available" ]; then
+  # Package names are normalized from the image's controlled profile files.
   # shellcheck disable=SC2086
   apt-get install -y --no-install-recommends $available
 fi

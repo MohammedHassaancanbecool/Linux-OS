@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Drakonis Network Tools
+Name[ar]=أدوات شبكة Drakonis
+Comment=Inspect local interfaces, routes, DNS, and sockets
+Exec=xfce4-terminal --command=/usr/local/bin/drakonis-network-tools
+Icon=drakonis-linux
+Terminal=false
+Type=Application
+Categories=Drakonis;System;Network;

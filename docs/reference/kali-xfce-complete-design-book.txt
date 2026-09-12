@@ -1,0 +1,219 @@
+        Kali XFCE / Debian
+  Complete Design Collection
+
+Company indigo visual identity and desktop interface concepts
+
+
+
+
+       29 visual assets • Prepared for Debian XFCE implementation
+Contents
+01. Applications Menu Concept
+02. Code Editor Concept
+03. Concept V1 Alt
+04. Concept V1
+05. Concept V2 Company Logo
+06. Concept V3 Indigo Light
+07. Concept V4 No Grid Under Logo
+08. Desktop V5 Black Terminal
+09. Desktop V6 Translucent Terminal
+10. File Manager Concept
+11. File Manager V2 Black Logo App Button
+12. File Manager V3 Black Logo App Button
+13. File Manager V4 Logo Left Center
+14. Help Center Concept
+15. Lock Screen Concept
+Contents — continued
+
+
+
+
+                       16. Login Screen Concept
+                       17. Login Screen V2 Centered Logo
+                       18. Network Tools Concept
+                       19. Notification Center Concept
+                       20. Power Session Menu Concept
+                       21. Security Center Concept
+                       22. Settings Center Concept
+                       23. Software Center Concept
+                       24. System Monitor Dashboard Concept
+                       25. Themes Manager Concept
+                       26. Web Browser Concept
+                       27. Welcome First Run Concept
+                       28. Workspace Overview Concept
+                       29. Company Logo Black Icon
+01 — Applications Menu Concept                                                 kali-xfce-applications-menu-concept.png
+
+
+
+
+                                 Kali XFCE / Debian visual design collection
+02 — Code Editor Concept                                                 kali-xfce-code-editor-concept.png
+
+
+
+
+                           Kali XFCE / Debian visual design collection
+03 — Concept V1 Alt                                                 kali-xfce-concept-v1-alt.png
+
+
+
+
+                      Kali XFCE / Debian visual design collection
+04 — Concept V1                                                 kali-xfce-concept-v1.png
+
+
+
+
+                  Kali XFCE / Debian visual design collection
+05 — Concept V2 Company Logo                                                 kali-xfce-concept-v2-company-logo.png
+
+
+
+
+                               Kali XFCE / Debian visual design collection
+06 — Concept V3 Indigo Light                                                 kali-xfce-concept-v3-indigo-light.png
+
+
+
+
+                               Kali XFCE / Debian visual design collection
+07 — Concept V4 No Grid Under Logo                                             kali-xfce-concept-v4-no-grid-under-logo.png
+
+
+
+
+                                 Kali XFCE / Debian visual design collection
+08 — Desktop V5 Black Terminal                                                 kali-xfce-desktop-v5-black-terminal.png
+
+
+
+
+                                 Kali XFCE / Debian visual design collection
+09 — Desktop V6 Translucent Terminal                                           kali-xfce-desktop-v6-translucent-terminal.png
+
+
+
+
+                                 Kali XFCE / Debian visual design collection
+10 — File Manager Concept                                                 kali-xfce-file-manager-concept.png
+
+
+
+
+                            Kali XFCE / Debian visual design collection
+11 — File Manager V2 Black Logo App Button                                     kali-xfce-file-manager-v2-black-logo-app-button.png
+
+
+
+
+                                 Kali XFCE / Debian visual design collection
+12 — File Manager V3 Black Logo App Button                                     kali-xfce-file-manager-v3-black-logo-app-button.png
+
+
+
+
+                                 Kali XFCE / Debian visual design collection
+13 — File Manager V4 Logo Left Center                                           kali-xfce-file-manager-v4-logo-left-center.png
+
+
+
+
+                                  Kali XFCE / Debian visual design collection
+14 — Help Center Concept                                                 kali-xfce-help-center-concept.png
+
+
+
+
+                           Kali XFCE / Debian visual design collection
+15 — Lock Screen Concept                                                 kali-xfce-lock-screen-concept.png
+
+
+
+
+                           Kali XFCE / Debian visual design collection
+16 — Login Screen Concept                                                 kali-xfce-login-screen-concept.png
+
+
+
+
+                            Kali XFCE / Debian visual design collection
+17 — Login Screen V2 Centered Logo                                             kali-xfce-login-screen-v2-centered-logo.png
+
+
+
+
+                                 Kali XFCE / Debian visual design collection
+18 — Network Tools Concept                                                 kali-xfce-network-tools-concept.png
+
+
+
+
+                             Kali XFCE / Debian visual design collection
+19 — Notification Center Concept                                                 kali-xfce-notification-center-concept.png
+
+
+
+
+                                   Kali XFCE / Debian visual design collection
+20 — Power Session Menu Concept                                                 kali-xfce-power-session-menu-concept.png
+
+
+
+
+                                  Kali XFCE / Debian visual design collection
+21 — Security Center Concept                                                 kali-xfce-security-center-concept.png
+
+
+
+
+                               Kali XFCE / Debian visual design collection
+22 — Settings Center Concept                                                 kali-xfce-settings-center-concept.png
+
+
+
+
+                               Kali XFCE / Debian visual design collection
+23 — Software Center Concept                                                 kali-xfce-software-center-concept.png
+
+
+
+
+                               Kali XFCE / Debian visual design collection
+24 — System Monitor Dashboard Concept                                         kali-xfce-system-monitor-dashboard-concept.png
+
+
+
+
+                                Kali XFCE / Debian visual design collection
+25 — Themes Manager Concept                                                 kali-xfce-themes-manager-concept.png
+
+
+
+
+                              Kali XFCE / Debian visual design collection
+26 — Web Browser Concept                                                 kali-xfce-web-browser-concept.png
+
+
+
+
+                           Kali XFCE / Debian visual design collection
+27 — Welcome First Run Concept                                                 kali-xfce-welcome-first-run-concept.png
+
+
+
+
+                                 Kali XFCE / Debian visual design collection
+28 — Workspace Overview Concept                                                 kali-xfce-workspace-overview-concept.png
+
+
+
+
+                                  Kali XFCE / Debian visual design collection
+29 — Company Logo Black Icon                                                 company-logo-black-icon.png
+
+
+
+
+                               Kali XFCE / Debian visual design collection
+

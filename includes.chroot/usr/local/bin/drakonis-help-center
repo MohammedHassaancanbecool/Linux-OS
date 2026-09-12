@@ -1,0 +1,21 @@
+#!/bin/sh
+cat <<'EOF'
+\033[1;36mDrakonis Help Center\033[0m
+
+Welcome to Drakonis Linux, a Debian XFCE environment for authorized defensive analysis.
+
+Safety
+  mll-network-isolation enable    block non-loopback output
+  mll-network-isolation status    inspect isolation rules
+  mll-help                        read the legal-use guide
+
+Desktop utilities
+  drakonis-security-center        review local security state
+  drakonis-network-tools          inspect local interfaces and sockets
+  drakonis-themes-manager         select the installed visual theme
+  drakonis-power-session           lock or end the session safely
+
+Use only systems, accounts, traffic, and data that you own or are explicitly authorized to assess.
+Press Enter to close...
+EOF
+read _

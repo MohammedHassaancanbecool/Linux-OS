@@ -1,0 +1,14 @@
+#!/bin/sh
+set -eu
+printf '\033[1;36mDrakonis Themes Manager\033[0m\n\n'
+printf '1) DRAKONIS-Night (Indigo/Cyan)\n2) DRAKONIS-Carbon (Graphite/Teal)\nChoose [1-2, default 1]: '
+read choice
+[ "$choice" = 2 ] && theme=DRAKONIS-Carbon || theme=DRAKONIS-Night
+if command -v xfconf-query >/dev/null 2>&1; then
+  xfconf-query -c xsettings -p /Net/ThemeName -s "$theme" 2>/dev/null || true
+  xfconf-query -c xfwm4 -p /general/theme -s "$theme" 2>/dev/null || true
+  printf 'Applied %s.\n' "$theme"
+else
+  printf 'Theme selected: %s. Apply it from XFCE Appearance when running outside a desktop session.\n' "$theme"
+fi
+printf 'Press Enter to close... '; read _

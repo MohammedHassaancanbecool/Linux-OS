@@ -10,17 +10,21 @@ The Debian image provides a stable core and optional installable profiles. The p
 | `wireless` | Wireless diagnostics and capture tooling; requires compatible hardware and an isolated lab |
 | `forensics` | Disk, file, metadata, malware triage, and memory-analysis utilities |
 | `reverse` | Debugging, disassembly, binary inspection, tracing, and instrumentation |
+| `redteam` | Authorized adversary simulation across network, web, identity, proxy, and password-audit workflows |
 
 Install one profile from a checkout:
 
 ```bash
 sudo ./scripts/install-profile.sh network
 sudo ./scripts/install-profile.sh web
+sudo ./scripts/install-profile.sh redteam
 ```
 
 The installer checks each package with `apt-cache`, installs packages available in the configured Debian repositories, and reports unavailable names without treating them as proof that an equivalent tool is safe or supported. Package names and availability vary by Debian release; review the transaction before use.
 
 Tools that require proprietary licensing, vendor repositories, special hardware, or a different package format are not silently embedded in the ISO. Burp Suite remains operator-installed from its official vendor. BlackArch's own repository remains isolated to the separate Arch profile.
+
+The `redteam` profile is deliberately optional and uses only package names resolved from the configured Debian repositories. Availability varies by Debian release; unavailable packages are reported rather than replaced with untrusted downloads. Use it only inside an authorized engagement or isolated training range, and enable `mll-network-isolation` before handling untrusted samples.
 
 All use is restricted to systems, accounts, traffic, and data that the operator owns or is explicitly authorized to test. No profile enables automatic target discovery or external connections at first boot.
 

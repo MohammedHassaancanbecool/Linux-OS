@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Drakonis First Run
+Name[ar]=بدء استخدام Drakonis
+Comment=Review the safe-by-default lab setup
+Exec=xfce4-terminal --command=/usr/local/bin/drakonis-first-run
+Icon=drakonis-linux
+Terminal=false
+Type=Application
+Categories=Drakonis;System;
+OnlyShowIn=XFCE;

@@ -1,6 +1,6 @@
 # Release acceptance checklist
 
-A release is not published until the following checks are recorded for the exact artifact hash.
+A release such as v0.3.0 is not published until the following checks are recorded for the exact artifact hash.
 
 | Check | Required result |
 |---|---|

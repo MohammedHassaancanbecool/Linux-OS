@@ -8,7 +8,7 @@ lb config \
   --archive-areas "main contrib non-free-firmware" \
   --debian-installer false \
   --initsystem systemd \
-  --bootappend-live "boot=live components username=analyst hostname=drakonis-linux quiet splash" \
+  --bootappend-live "boot=live components username=drakonis hostname=drakonis-linux quiet splash" \
   --iso-application "Drakonis Linux" \
   --iso-publisher "Drakonis Linux Project" \
   --iso-volume "DRAKONIS_STABLE_X86_64" \

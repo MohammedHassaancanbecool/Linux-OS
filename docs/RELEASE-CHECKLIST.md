@@ -1,6 +1,6 @@
 # Release acceptance checklist
 
-A release such as v0.3.0 is not published until the following checks are recorded for the exact artifact hash.
+A release such as v0.4.0 is not published until the following checks are recorded for the exact artifact hash.
 
 | Check | Required result |
 |---|---|
@@ -17,6 +17,8 @@ A release such as v0.3.0 is not published until the following checks are recorde
 | VM | Guest installs to a virtual disk and reboots without the ISO |
 | OVA | Exported OVA imports on a clean VirtualBox host and boots with host-only networking |
 | Documentation | Artifact hash, build date, package manifest, known issues, and test host are recorded |
+| Vault | Case create/add/verify/report/seal flows pass in a temporary HOME |
+| Software Center | Profile listing and package policy use only configured Debian repositories |
 
 ## Known limitations for the initial engineering baseline
 

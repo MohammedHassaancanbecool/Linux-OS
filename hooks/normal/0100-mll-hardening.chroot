@@ -1,12 +1,12 @@
 #!/bin/sh
 set -eu
-chmod 0755 /usr/local/bin/mll-help /usr/local/bin/mll-network-isolation /usr/local/bin/drakonis-security-center /usr/local/bin/drakonis-network-tools /usr/local/bin/drakonis-help-center /usr/local/bin/drakonis-themes-manager /usr/local/bin/drakonis-first-run /usr/local/bin/drakonis-power-session /usr/local/bin/drakonis-control-center /usr/local/bin/drakonis-vault /usr/local/bin/drakonis-vault-ui /usr/local/libexec/drakonis-center.py /usr/local/libexec/drakonis-vault.py /usr/local/libexec/drakonis-vault-ui.py
-printf '%s\n' 'analyst ALL=(ALL) NOPASSWD: /usr/local/bin/mll-network-isolation' > /etc/sudoers.d/mll-isolation
+chmod 0755 /usr/local/bin/mll-help /usr/local/bin/mll-network-isolation /usr/local/bin/drakonis-security-center /usr/local/bin/drakonis-network-tools /usr/local/bin/drakonis-help-center /usr/local/bin/drakonis-themes-manager /usr/local/bin/drakonis-first-run /usr/local/bin/drakonis-power-session /usr/local/bin/drakonis-control-center /usr/local/bin/drakonis-vault /usr/local/bin/drakonis-vault-ui /usr/local/bin/drakonis-software-center /usr/local/sbin/drakonis-initial-password /usr/local/libexec/drakonis-center.py /usr/local/libexec/drakonis-vault.py /usr/local/libexec/drakonis-vault-ui.py
+printf '%s\n' 'drakonis ALL=(ALL) NOPASSWD: /usr/local/bin/mll-network-isolation' > /etc/sudoers.d/mll-isolation
 chmod 0440 /etc/sudoers.d/mll-isolation
 install -d -m 0755 /etc/mll
 cat > /etc/mll/release <<'EOF'
 name=Drakonis Linux
-version=0.3.1
+version=0.4.0
 base=Debian Stable
 architecture=amd64
 desktop=XFCE

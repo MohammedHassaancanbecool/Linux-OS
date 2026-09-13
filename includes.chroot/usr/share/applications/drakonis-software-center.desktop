@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Drakonis Software Center
+Name[ar]=مركز برامج Drakonis
+Comment=Review and install packages from configured Debian repositories
+Exec=xfce4-terminal --command=/usr/local/bin/drakonis-software-center
+Icon=drakonis-linux
+Terminal=false
+Type=Application
+Categories=Drakonis;System;Settings;
+Keywords=software;packages;apt;profiles;

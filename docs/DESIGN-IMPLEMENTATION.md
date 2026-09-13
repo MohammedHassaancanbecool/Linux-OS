@@ -11,10 +11,10 @@ This document maps the supplied Debian XFCE design brief to the current image im
 | Branded login | LightDM greeter uses the wallpaper, mark, and DRAKONIS-Night theme | Login is boot-tested in the guest |
 | Profiles launcher | Existing XFCE launcher plus network, web, forensic, reverse, exploitation, and optional `redteam` profiles | Profile installation reports unavailable packages instead of using untrusted sources |
 | Utility screens | Security Center, Network Tools, Help Center, Themes Manager, First Run, and Power & Session terminal utilities with Applications entries | No automatic target discovery; destructive power actions require explicit confirmation |
-| Interactive control center | GTK3/PyGObject application with searchable sidebar, cards, keyboard navigation, live command results, and 16 screen destinations | Verify at 1920×1080 and 1280×720 in the VM; actions remain local and authorization-scoped |
+| Interactive control center | GTK3/PyGObject application with searchable sidebar, cards, keyboard navigation, live command results, and 17 screen destinations; v0.4 adds operational monitor, workspace, settings, notifications, and software cards | Verify at 1920×1080 and 1280×720 in the VM; actions remain local and authorization-scoped |
 | Safety boundary | Isolation helper, legal-use notice, no automatic discovery, no persistence or evasion helpers | Isolation enable/disable and first boot are tested in a disposable lab |
 
-The remaining larger screens in the brief—Workspace Overview, Software Center, a graphical Notification Center, and a full Settings Center—remain product work items. The first functional utility pass now provides safe XFCE-native terminal utilities for security status, local network inspection, help, themes, first-run guidance, and power/session actions.
+v0.4 provides functional first-pass implementations for Workspace Overview, Software Center, Notifications, Settings, and System Monitor using XFCE-native tools and configured Debian repositories. A future pass may replace these operational cards with richer dedicated views while preserving the same visual language.
 
 ## Red-team boundary
 

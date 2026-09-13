@@ -3,4 +3,5 @@ Drakonis Linux — Debian Stable XFCE
 AUTHORIZED USE ONLY. Test only systems and data you own or are explicitly authorized to assess.
 Default profile: isolated training and defensive analysis. No live target is contacted automatically.
 
-Useful commands: mll-help, mll-network-isolation, mll-release
+Useful commands: mll-help, mll-network-isolation, mll-release, drakonis-vault
+Demo credentials: drakonis / drakonis — change them before any network use.

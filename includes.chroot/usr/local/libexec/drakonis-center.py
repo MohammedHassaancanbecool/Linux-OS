@@ -139,6 +139,27 @@ class DrakonisCenter(Gtk.Window):
         elif key == "evidence":
             self.card(grid, 0, 0, "Drakonis Vault", "Manage local case folders and SHA-256 manifests.", "Open vault", "/usr/local/bin/drakonis-vault-ui")
             self.card(grid, 1, 0, "Integrity", "Verify recorded hashes before sealing a case.", "Open vault", "/usr/local/bin/drakonis-vault-ui")
+        elif key == "software":
+            self.card(grid, 0, 0, "Profiles", "List Debian-native security profiles.", "List profiles", "/usr/local/bin/drakonis-software-center profiles")
+            self.card(grid, 1, 0, "Package lookup", "Inspect a package without installing it.", "Open center", "/usr/local/bin/drakonis-software-center")
+            self.card(grid, 0, 1, "Repository policy", "Only configured Debian repositories are allowed.", "Show policy", "apt-cache policy")
+        elif key == "monitor":
+            self.card(grid, 0, 0, "CPU and memory", "Live local resource snapshot.", "Inspect", "uptime; free -h")
+            self.card(grid, 1, 0, "Storage", "Filesystem usage for the analyst workspace.", "Inspect", "df -h /")
+            self.card(grid, 0, 1, "Processes", "Review local processes without target activity.", "Inspect", "ps -eo pid,comm,%cpu,%mem --sort=-%cpu | head -n 16")
+        elif key == "notifications":
+            self.card(grid, 0, 0, "Recent events", "Review local journal warnings and service events.", "Open journal", "journalctl -b -p warning..alert --no-pager -n 30")
+            self.card(grid, 1, 0, "Safety notice", "No automatic target discovery is performed.", "Open help", "/usr/local/bin/drakonis-help-center")
+        elif key == "workspaces":
+            self.card(grid, 0, 0, "Workspace 1", "Primary analyst desktop.", "Switch", "wmctrl -s 0")
+            self.card(grid, 1, 0, "Workspace 2", "Evidence and notes.", "Switch", "wmctrl -s 1")
+            self.card(grid, 0, 1, "Workspace 3", "Tool execution.", "Switch", "wmctrl -s 2")
+            self.card(grid, 1, 1, "Workspace 4", "Review and reporting.", "Switch", "wmctrl -s 3")
+        elif key == "settings":
+            self.card(grid, 0, 0, "Appearance", "Open XFCE appearance settings.", "Open", "xfce4-appearance-settings")
+            self.card(grid, 1, 0, "Display", "Configure displays and scaling.", "Open", "xfce4-display-settings")
+            self.card(grid, 0, 1, "Keyboard", "Configure shortcuts and layout.", "Open", "xfce4-keyboard-settings")
+            self.card(grid, 1, 1, "Session", "Review startup applications.", "Open", "xfce4-session-settings")
         else:
             self.card(grid, 0, 0, "Ready", "This Drakonis workspace is safe-by-default and keyboard friendly.", "Open Help Center", "/usr/local/bin/drakonis-help-center")
             self.card(grid, 1, 0, "Next step", "Use isolated networking and a disposable VM snapshot.", "Open First Run", "/usr/local/bin/drakonis-first-run")
@@ -176,7 +197,7 @@ class DrakonisCenter(Gtk.Window):
             button.set_active(False)
         self.stack.set_visible_child_name(key)
         title = dict((k, t) for k, t, _ in PAGES)[key]
-        self.header.set_markup(f'<span foreground="{ACCENT}" size="large">{title}</span>  <span foreground="{MUTED}">Drakonis Linux v0.3.1</span>')
+        self.header.set_markup(f'<span foreground="{ACCENT}" size="large">{title}</span>  <span foreground="{MUTED}">Drakonis Linux v0.4.0</span>')
 
 Gtk.init([])
 window = DrakonisCenter()

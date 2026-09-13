@@ -1,10 +1,12 @@
 #!/usr/bin/env python3
 import argparse
+import getpass
 import hashlib
 import json
 import os
 import shutil
 import sys
+import subprocess
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -108,6 +110,42 @@ def cmd_seal(args):
             item.chmod(0o555)
     print(f"Sealed {meta['name']}")
 
+def cmd_report(args):
+    path = case_dir(args.case)
+    meta = load_meta(path)
+    rows = []
+    manifest = path / "manifest.jsonl"
+    if manifest.exists():
+        for line in manifest.read_text(encoding="utf-8").splitlines():
+            record = json.loads(line)
+            rows.append(f"<tr><td>{record['file']}</td><td>{record['size']}</td><td><code>{record['sha256']}</code></td><td>{record['added']}</td></tr>")
+    status = "SEALED" if meta.get("sealed") else "OPEN"
+    html = """<!doctype html><meta charset='utf-8'><title>Drakonis Vault report</title>
+<style>body{font-family:system-ui;background:#0b1224;color:#f2f6ff;padding:2rem}h1{color:#00d9ff}table{border-collapse:collapse;width:100%%}td,th{border:1px solid #283b9f;padding:.6rem;text-align:left}code{color:#a9bce8}</style>
+<h1>Drakonis Vault — %s</h1><p>Status: <b>%s</b><br>Purpose: %s<br>Created: %s</p>
+<table><tr><th>File</th><th>Bytes</th><th>SHA-256</th><th>Added</th></tr>%s</table>
+""" % (meta['name'], status, meta.get('purpose',''), meta['created'], ''.join(rows))
+    output = Path(args.output).expanduser() if args.output else path / "report.html"
+    output.write_text(html, encoding="utf-8")
+    log_event(path, "report-created", str(output))
+    print(output)
+
+def cmd_encrypt(args):
+    path = case_dir(args.case)
+    if not (path / "case.json").exists():
+        raise SystemExit("Case not found")
+    output = Path(args.output).expanduser() if args.output else path.with_suffix(".vault.tar.gz.enc")
+    passphrase = getpass.getpass("Encryption passphrase: ")
+    confirm = getpass.getpass("Confirm passphrase: ")
+    if passphrase != confirm or not passphrase:
+        raise SystemExit("Passphrases do not match")
+    archive = output.with_suffix("")
+    subprocess.run(["tar", "-czf", str(archive), "-C", str(BASE), path.name], check=True)
+    subprocess.run(["openssl", "enc", "-aes-256-cbc", "-pbkdf2", "-salt", "-in", str(archive), "-out", str(output), "-pass", "stdin"], input=(passphrase + "\n").encode(), check=True)
+    archive.unlink(missing_ok=True)
+    log_event(path, "case-encrypted", str(output))
+    print(output)
+
 def main():
     parser = argparse.ArgumentParser(description="Local Drakonis evidence vault")
     sub = parser.add_subparsers(dest="command", required=True)
@@ -117,6 +155,8 @@ def main():
     p = sub.add_parser("status"); p.add_argument("case"); p.set_defaults(func=cmd_status)
     p = sub.add_parser("verify"); p.add_argument("case"); p.set_defaults(func=cmd_verify)
     p = sub.add_parser("seal"); p.add_argument("case"); p.set_defaults(func=cmd_seal)
+    p = sub.add_parser("report"); p.add_argument("case"); p.add_argument("--output"); p.set_defaults(func=cmd_report)
+    p = sub.add_parser("encrypt"); p.add_argument("case"); p.add_argument("--output"); p.set_defaults(func=cmd_encrypt)
     args = parser.parse_args(); BASE.mkdir(parents=True, exist_ok=True); args.func(args)
 
 if __name__ == "__main__": main()

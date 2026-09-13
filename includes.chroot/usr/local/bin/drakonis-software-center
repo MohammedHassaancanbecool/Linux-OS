@@ -1,0 +1,23 @@
+#!/bin/sh
+set -eu
+printf '\033[1;36mDrakonis Software Center\033[0m\n\n'
+printf 'Only configured Debian repositories are used. No third-party source is added.\n\n'
+usage() { printf 'Usage: drakonis-software-center {profiles|search PACKAGE|install PACKAGE}\n'; }
+case "${1:-}" in
+  profiles)
+    for f in /usr/local/share/mll/package-profiles/*.list; do
+      [ -f "$f" ] || continue
+      printf '%s\n' "$(basename "$f" .list)"
+    done
+    ;;
+  search)
+    [ -n "${2:-}" ] || { usage; exit 2; }
+    apt-cache policy "$2" | sed -n '1,12p'
+    ;;
+  install)
+    [ -n "${2:-}" ] || { usage; exit 2; }
+    printf 'Installing only from configured Debian repositories: %s\n' "$2"
+    exec pkexec apt-get install --no-install-recommends "$2"
+    ;;
+  *) usage; exit 2 ;;
+esac

@@ -19,11 +19,11 @@ search --no-floppy --label DRAKONIS_STABLE_X86_64 --set=root
 set timeout=5
 set default=0
 menuentry 'Drakonis Linux Live' {
-  linux /live/vmlinuz boot=live components username=analyst hostname=drakonis-linux quiet splash
+  linux /live/vmlinuz boot=live components username=drakonis hostname=drakonis-linux quiet splash
   initrd /live/initrd.img
 }
 menuentry 'Drakonis Linux Live (failsafe)' {
-  linux /live/vmlinuz boot=live components username=analyst hostname=drakonis-linux noapic nolapic nomodeset
+  linux /live/vmlinuz boot=live components username=drakonis hostname=drakonis-linux noapic nolapic nomodeset
   initrd /live/initrd.img
 }
 EOF

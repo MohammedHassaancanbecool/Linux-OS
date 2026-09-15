@@ -1,0 +1,13 @@
+#!/bin/sh
+set -eu
+# Drakonis v6.0 desktop shell: glass indigo workspace with cyan/violet accents.
+command -v xfconf-query >/dev/null 2>&1 || exit 0
+xfconf-query -c xsettings -p /Net/ThemeName -s DRAKONIS-Night -n -t string 2>/dev/null || true
+xfconf-query -c xsettings -p /Net/IconThemeName -s Papirus-Dark -n -t string 2>/dev/null || true
+xfconf-query -c xfwm4 -p /general/theme -s DRAKONIS-Night -n -t string 2>/dev/null || true
+xfconf-query -c xfwm4 -p /general/button_layout -s 'C|HMC' -n -t string 2>/dev/null || true
+xfconf-query -c xfce4-panel -p /panels/panel-1/length -s 100 -n -t int 2>/dev/null || true
+xfconf-query -c xfce4-panel -p /panels/panel-1/position-locked -s true -n -t bool 2>/dev/null || true
+if command -v plank >/dev/null 2>&1 && ! pgrep -x plank >/dev/null 2>&1; then
+  plank >/dev/null 2>&1 &
+fi

@@ -6,6 +6,8 @@
     <property name="button_layout" type="string" value="O|HMC"/>
     <property name="workspace_count" type="int" value="4"/>
     <property name="wrap_windows" type="bool" value="true"/>
+    <property name="wrap_workspaces" type="bool" value="true"/>
     <property name="box_move" type="bool" value="true"/>
+    <property name="use_compositing" type="bool" value="true"/>
   </property>
 </channel>

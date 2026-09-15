@@ -56,3 +56,10 @@ python3-scapy
 python3-impacket
 openssl
 nftables
+xfce4-panel
+xfce4-notifyd
+thunar
+mousepad
+plank
+yad
+zenity

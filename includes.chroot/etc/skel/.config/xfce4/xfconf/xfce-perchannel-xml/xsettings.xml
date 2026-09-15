@@ -9,5 +9,7 @@
   <property name="Gtk" type="empty">
     <property name="FontName" type="string" value="Sans 10"/>
     <property name="ToolbarStyle" type="string" value="both-horiz"/>
+    <property name="MenuImages" type="bool" value="true"/>
+    <property name="ButtonImages" type="bool" value="true"/>
   </property>
 </channel>

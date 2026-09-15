@@ -19,3 +19,9 @@ v0.5 keeps the XFCE edition and adds the supplied login artwork plus QEMU x86, Q
 ## Red-team boundary
 
 The `redteam` profile is intended for owned systems, written-scope engagements, CTFs, and isolated training ranges. It uses Debian package resolution only. It does not add Kali, BlackArch, or arbitrary third-party APT sources, and it does not package credential theft, covert persistence, evasion, destructive payloads, or automated external targeting.
+
+## v6.0 interactive desktop layer
+
+The v6.0 image adds Plank launchers for the Drakonis Control Center, terminal, file manager, and Firefox, with XFCE autostart for the desktop shell. The shell applies the DRAKONIS-Night identity, preserves XFCE workspaces, and starts the centered Dock. The existing GTK/PyGObject Control Center remains the primary interactive dashboard, while the Dock and desktop shell provide the visual entry points described by the design collection.
+
+The v6.0 ISO was smoke-tested through ISOLINUX BIOS boot and GNU GRUB UEFI boot. Visual acceptance remains a graphical-VM review item at common resolutions.

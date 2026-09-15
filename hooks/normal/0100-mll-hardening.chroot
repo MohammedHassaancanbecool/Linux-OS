@@ -6,7 +6,7 @@ chmod 0440 /etc/sudoers.d/mll-isolation
 install -d -m 0755 /etc/mll
 cat > /etc/mll/release <<'EOF'
 name=Drakonis Linux
-version=0.4.0
+version=0.5.0
 base=Debian Stable
 architecture=amd64
 desktop=XFCE

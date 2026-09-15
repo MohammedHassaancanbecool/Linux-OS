@@ -10,6 +10,7 @@ config/common
 config/source
 artifacts/build.log
 artifacts/*.iso
+artifacts/qemu-OVMF_VARS.fd
 *.hybrid.iso
 *.iso
 *.zsync.xz

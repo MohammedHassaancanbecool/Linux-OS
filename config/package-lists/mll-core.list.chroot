@@ -8,6 +8,10 @@ lightdm
 lightdm-gtk-greeter
 xfce4-whiskermenu-plugin
 wmctrl
+qemu-system-x86
+qemu-utils
+qemu-system-gui
+ovmf
 sudo
 vim-tiny
 nano

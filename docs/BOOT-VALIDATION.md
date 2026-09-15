@@ -14,3 +14,14 @@ The final ISO El Torito report contains both entries:
 | UEFI | `/EFI/BOOT/efiboot.img` |
 
 The QEMU smoke tests intentionally stop after the boot menu or firmware loader is reached. A complete XFCE graphical-session test still requires a graphical VM display or a physical test machine; serial QEMU is not a substitute for visual desktop acceptance testing.
+
+## Supported QEMU launcher
+
+Use `scripts/run-qemu.sh` to run the release ISO with one virtual CPU and networking disabled by default:
+
+```bash
+./scripts/run-qemu.sh --bios
+./scripts/run-qemu.sh --uefi
+```
+
+The launcher enables KVM automatically when `/dev/kvm` is readable and writable. When KVM is unavailable, it selects TCG with one virtual CPU and `-cpu max` as a slower compatibility mode. Add `--network` only for an explicitly authorized lab network. Add `--headless` for serial or boot-smoke tests; this is not a substitute for graphical XFCE acceptance.

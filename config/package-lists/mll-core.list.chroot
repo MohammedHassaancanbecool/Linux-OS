@@ -19,10 +19,6 @@ file-roller
 mousepad
 wmctrl
 plank
-qemu-system-x86
-qemu-utils
-qemu-system-gui
-ovmf
 sudo
 vim-tiny
 nano
@@ -43,9 +39,6 @@ zip
 python3
 python3-gi
 gir1.2-gtk-3.0
-python3-pip
-python3-venv
-build-essential
 librsvg2-bin
 syslinux-utils
 adwaita-icon-theme

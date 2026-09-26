@@ -9,7 +9,7 @@ Drakonis Linux is now an operating-system distribution build, not an Expo applic
 | Layer | Implementation | Rationale |
 |---|---|---|
 | Base OS | Debian Stable amd64 | Stable package lifecycle and broad hardware support |
-| Desktop | XFCE and LightDM | Low resource use and predictable lab VM behavior |
+| Desktop | GNOME Shell, GDM3, and Plank | Modern workflow with a branded centered dock and predictable VM behavior |
 | Connectivity | NetworkManager plus nftables helper | Easy switching between isolated and authorized lab networks |
 | Analysis | Debian-packaged network, web, wireless, and forensic utilities | Reproducible installation and package provenance |
 | Education | Legal-use notice, local help, release checklist | Reduces accidental misuse and clarifies limits |
@@ -23,7 +23,7 @@ The core profile contains packages available from Debian repositories. Optional 
 
 ## Release boundary
 
-The first version is a buildable engineering baseline, not a claim of parity with Kali Linux or Parrot Security. Feature parity requires hardware testing, installer testing, update policy, package curation, documentation, signed releases, vulnerability response, and repeated ISO/OVA boot validation.
+The 7.0 version is a buildable engineering baseline, not a claim of parity with Kali Linux or Parrot Security. Feature parity requires hardware testing, installer testing, update policy, package curation, documentation, signed releases, vulnerability response, and repeated ISO/OVA boot validation.
 
 ## References
 

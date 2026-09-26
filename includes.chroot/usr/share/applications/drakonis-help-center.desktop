@@ -2,7 +2,7 @@
 Name=Drakonis Help Center
 Name[ar]=مركز مساعدة Drakonis
 Comment=Safety guide, shortcuts, and local documentation
-Exec=xfce4-terminal --command=/usr/local/bin/drakonis-help-center
+Exec=gnome-terminal -- /usr/local/bin/drakonis-help-center
 Icon=drakonis-linux
 Terminal=false
 Type=Application

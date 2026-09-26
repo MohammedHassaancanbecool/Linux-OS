@@ -2,7 +2,7 @@
 Name=Drakonis Power & Session
 Name[ar]=الطاقة والجلسة في Drakonis
 Comment=Lock, suspend, log out, restart, or shut down with confirmation
-Exec=xfce4-terminal --command=/usr/local/bin/drakonis-power-session
+Exec=gnome-terminal -- /usr/local/bin/drakonis-power-session
 Icon=drakonis-linux
 Terminal=false
 Type=Application

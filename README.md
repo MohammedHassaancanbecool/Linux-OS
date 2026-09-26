@@ -1,6 +1,6 @@
 # Drakonis Linux
 
-Drakonis Linux v6.0 is a Debian Stable XFCE security-analysis distribution for **authorized defensive analysis and isolated lab work**. It is an independent desktop product with its own identity, themes, artwork, interactive desktop shell, and security-tool profiles.
+Drakonis Linux v7.0 is a Debian Stable GNOME security-analysis distribution for **authorized defensive analysis and isolated lab work**. It is an independent desktop product with its own identity, themes, artwork, interactive desktop shell, and security-tool profiles.
 
 The first release targets **x86_64 live ISO** and provides a documented path to an **OVA** appliance. It uses Debian packages wherever possible and does not redistribute proprietary software. Commercial tools such as Burp Suite must be installed by the operator from the vendor's official source and license terms.
 
@@ -11,7 +11,7 @@ The first release targets **x86_64 live ISO** and provides a documented path to 
 | Area | Status |
 |---|---|
 | Debian Stable base | Configured through `live-build` |
-| XFCE desktop | Configured |
+| GNOME Shell desktop | Configured |
 | Offline-safe boot notice | Configured |
 | Local analyst utilities | Nmap, Wireshark/TShark, SQLMap, Hydra, Gobuster, John, Hashcat, netcat, tcpdump; optional profiles cover additional utilities |
 | Authorized Red Team profile | Optional Debian-native `redteam` profile for adversary simulation across network, web, identity, proxy, and password-audit workflows |
@@ -19,9 +19,9 @@ The first release targets **x86_64 live ISO** and provides a documented path to 
 | Exploitation frameworks | Metasploit is not silently bundled; an explicit opt-in profile is provided where a trusted package source is available |
 | ISO | `scripts/build-iso.sh` |
 | OVA | `scripts/build-ova.sh`, requires a VM image builder such as VirtualBox or Packer |
-| Desktop identity | Indigo/Cyan/Violet DRAKONIS-Night theme, Graphite terminal transparency, branded wallpaper and LightDM greeter |
+| Desktop identity | Indigo/Cyan/Violet DRAKONIS-Night theme, GNOME Shell, centered Plank dock, and Graphite terminal palette, branded wallpaper and GDM3 greeter |
 | Automated checks | `scripts/check-project.sh` |
-| v6.0 desktop shell | Plank Dock, DRAKONIS-Night, four workspaces, Control Center and XFCE-native workspaces |
+| v7.0 GNOME desktop shell | Plank Dock, DRAKONIS-Night, four workspaces, Control Center, GNOME Overview, and a centered dock |
 | Interactive centers | Security, network, monitor, software, settings, themes, files, browser, help |
 
 ## Build requirements
@@ -37,9 +37,9 @@ sudo ./scripts/build-iso.sh
 
 The result is written to `artifacts/` and includes a SHA-256 checksum. The build is intentionally reproducible from the package manifest and hook files, subject to Debian repository updates.
 
-## v6.0 desktop layer
+## v7.0 GNOME desktop layer
 
-The v6.0 image implements the supplied indigo/cyan/violet design direction as a working XFCE layer. `drakonis-desktop-shell` applies the default appearance and starts Plank. `drakonis-control-center` provides safe interactive entry points for the security, network, system-monitor, software-profile, settings, themes, file-manager, browser, and help concepts. These launchers open local tools and do not automatically scan external targets or change firewall policy.
+The v7.0 image implements the supplied indigo/cyan/violet design direction as a working GNOME layer. `drakonis-desktop-shell` applies the default appearance and starts Plank. `drakonis-control-center` provides safe interactive entry points for the security, network, system-monitor, software-profile, settings, themes, file-manager, browser, and help concepts. These launchers open local tools and do not automatically scan external targets or change firewall policy.
 
 ## BlackArch tool coverage
 

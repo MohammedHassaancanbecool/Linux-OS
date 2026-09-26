@@ -117,24 +117,24 @@ class DrakonisCenter(Gtk.Window):
             self.card(grid, 0, 1, "DNS", "Configured resolver status.", "Inspect", "cat /etc/resolv.conf")
             self.card(grid, 1, 1, "Sockets", "Listening local services.", "Inspect", "ss -lntup")
         elif key == "themes":
-            self.card(grid, 0, 0, "DRAKONIS-Night", "Indigo, Cyan, and Violet.", "Apply Night", "xfconf-query -c xsettings -p /Net/ThemeName -s DRAKONIS-Night")
-            self.card(grid, 1, 0, "DRAKONIS-Carbon", "Graphite, Teal, and cool white.", "Apply Carbon", "xfconf-query -c xsettings -p /Net/ThemeName -s DRAKONIS-Carbon")
+            self.card(grid, 0, 0, "DRAKONIS-Night", "Indigo, Cyan, and Violet.", "Apply Night", "gsettings set org.gnome.desktop.interface gtk-theme DRAKONIS-Night")
+            self.card(grid, 1, 0, "DRAKONIS-Carbon", "Graphite, Teal, and cool white.", "Apply Carbon", "gsettings set org.gnome.desktop.interface gtk-theme DRAKONIS-Carbon")
         elif key == "power":
-            self.card(grid, 0, 0, "Lock Screen", "Protect the current session.", "Lock", "xflock4")
+            self.card(grid, 0, 0, "Lock Screen", "Protect the current GNOME session.", "Lock", "loginctl lock-session")
             self.card(grid, 1, 0, "Suspend", "Pause the VM or workstation.", "Suspend", "systemctl suspend")
-            self.card(grid, 0, 1, "Log Out", "End the XFCE session.", "Log out", "xfce4-session-logout --logout")
+            self.card(grid, 0, 1, "Log Out", "End the GNOME session.", "Log out", "gnome-session-quit --logout --no-prompt")
             self.card(grid, 1, 1, "Restart / Shut Down", "Requires an explicit confirmation.", "Open safe menu", "/usr/local/bin/drakonis-power-session")
         elif key == "applications":
             self.card(grid, 0, 0, "Tool Profiles", "Install Debian-native authorized profiles.", "Open installer", "/usr/local/bin/drakonis-install-profile")
             self.card(grid, 1, 0, "Red Team", "Optional adversary-simulation profile for owned labs.", "Open help", "/usr/local/bin/drakonis-help-center")
         elif key == "files":
-            self.card(grid, 0, 0, "Home", "Open your analyst workspace.", "Open", "thunar")
+            self.card(grid, 0, 0, "Home", "Open your analyst workspace.", "Open", "nautilus")
             self.card(grid, 1, 0, "File safety", "Use snapshots before examining untrusted files.", "Read guide", "/usr/local/bin/drakonis-help-center")
         elif key == "browser":
             self.card(grid, 0, 0, "Firefox ESR", "Privacy-aware browsing for research.", "Open browser", "firefox-esr")
             self.card(grid, 1, 0, "Lab boundary", "Do not connect untrusted production accounts.", "Read guide", "/usr/local/bin/drakonis-help-center")
         elif key == "code":
-            self.card(grid, 0, 0, "Terminal workspace", "Use tmux, Vim, and Python tools.", "Open terminal", "xfce4-terminal")
+            self.card(grid, 0, 0, "Terminal workspace", "Use tmux, Vim, and Python tools.", "Open terminal", "gnome-terminal")
             self.card(grid, 1, 0, "Documentation", "Keep scope and evidence notes local.", "Open help", "/usr/local/bin/drakonis-help-center")
         elif key == "evidence":
             self.card(grid, 0, 0, "Drakonis Vault", "Manage local case folders and SHA-256 manifests.", "Open vault", "/usr/local/bin/drakonis-vault-ui")
@@ -156,10 +156,10 @@ class DrakonisCenter(Gtk.Window):
             self.card(grid, 0, 1, "Workspace 3", "Tool execution.", "Switch", "wmctrl -s 2")
             self.card(grid, 1, 1, "Workspace 4", "Review and reporting.", "Switch", "wmctrl -s 3")
         elif key == "settings":
-            self.card(grid, 0, 0, "Appearance", "Open XFCE appearance settings.", "Open", "xfce4-appearance-settings")
-            self.card(grid, 1, 0, "Display", "Configure displays and scaling.", "Open", "xfce4-display-settings")
-            self.card(grid, 0, 1, "Keyboard", "Configure shortcuts and layout.", "Open", "xfce4-keyboard-settings")
-            self.card(grid, 1, 1, "Session", "Review startup applications.", "Open", "xfce4-session-settings")
+            self.card(grid, 0, 0, "Appearance", "Open GNOME appearance settings.", "Open", "gnome-control-center appearance")
+            self.card(grid, 1, 0, "Display", "Configure displays and scaling.", "Open", "gnome-control-center display")
+            self.card(grid, 0, 1, "Keyboard", "Configure shortcuts and layout.", "Open", "gnome-control-center keyboard")
+            self.card(grid, 1, 1, "Session", "Review startup applications.", "Open", "gnome-control-center multitasking")
         else:
             self.card(grid, 0, 0, "Ready", "This Drakonis workspace is safe-by-default and keyboard friendly.", "Open Help Center", "/usr/local/bin/drakonis-help-center")
             self.card(grid, 1, 0, "Next step", "Use isolated networking and a disposable VM snapshot.", "Open First Run", "/usr/local/bin/drakonis-first-run")
@@ -197,7 +197,7 @@ class DrakonisCenter(Gtk.Window):
             button.set_active(False)
         self.stack.set_visible_child_name(key)
         title = dict((k, t) for k, t, _ in PAGES)[key]
-        self.header.set_markup(f'<span foreground="{ACCENT}" size="large">{title}</span>  <span foreground="{MUTED}">Drakonis Linux v0.4.0</span>')
+        self.header.set_markup(f'<span foreground="{ACCENT}" size="large">{title}</span>  <span foreground="{MUTED}">Drakonis Linux v7.0</span>')
 
 Gtk.init([])
 window = DrakonisCenter()

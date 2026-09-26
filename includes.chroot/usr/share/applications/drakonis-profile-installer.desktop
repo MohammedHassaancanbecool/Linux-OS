@@ -3,7 +3,7 @@ Name=Drakonis Tool Profiles
 Name[ar]=ملفات تعريف أدوات Drakonis
 Comment=Install authorized security-analysis tool profiles
 Comment[ar]=تثبيت ملفات تعريف أدوات التحليل الأمني المصرح بها
-Exec=xfce4-terminal --command="/usr/local/bin/drakonis-install-profile"
+Exec=gnome-terminal -- /usr/local/bin/drakonis-install-profile
 Icon=drakonis-linux
 Terminal=false
 Type=Application

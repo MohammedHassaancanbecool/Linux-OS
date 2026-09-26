@@ -2,8 +2,8 @@
 Type=Application
 Name=Drakonis Desktop Shell
 Name[ar]=سطح مكتب Drakonis
-Comment=Indigo workspace, dock and session defaults
+Comment=Indigo workspace, dock and GNOME session defaults
 Exec=/usr/local/bin/drakonis-desktop-shell
-OnlyShowIn=XFCE;
+OnlyShowIn=GNOME;
 X-GNOME-Autostart-enabled=true
 NoDisplay=true

@@ -1,7 +1,8 @@
 [Desktop Entry]
 Type=Application
 Name=Drakonis First Run
-Comment=Safe-by-default first-run guidance
+Comment=Review safe defaults and lab guidance
 Exec=/usr/local/bin/drakonis-first-run
-OnlyShowIn=XFCE;
+OnlyShowIn=GNOME;
 X-GNOME-Autostart-enabled=true
+NoDisplay=true

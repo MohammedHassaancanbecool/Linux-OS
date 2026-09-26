@@ -2,7 +2,7 @@
 Name=Drakonis Security Center
 Name[ar]=مركز أمان Drakonis
 Comment=Review local isolation, firewall, and system state
-Exec=xfce4-terminal --command=/usr/local/bin/drakonis-security-center
+Exec=gnome-terminal -- /usr/local/bin/drakonis-security-center
 Icon=drakonis-linux
 Terminal=false
 Type=Application

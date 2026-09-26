@@ -5,6 +5,7 @@ lb config \
   --distribution stable \
   --architectures amd64 \
   --binary-images iso-hybrid \
+  --compression gzip \
   --archive-areas "main contrib non-free-firmware" \
   --debian-installer false \
   --initsystem systemd \

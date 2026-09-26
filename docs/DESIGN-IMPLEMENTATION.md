@@ -1,27 +1,28 @@
-# Drakonis desktop design implementation
+# Drakonis Linux 7.0 desktop design implementation
 
-This document maps the supplied Debian XFCE design brief to the current image implementation. The design uses Drakonis branding rather than copying another distribution's trademarks or artwork.
+This document maps the supplied, rights-cleared Drakonis visual direction to the GNOME image implementation. The design uses the independent Drakonis identity and does not copy another distribution's trademarks or artwork.
 
-| Design area | Current implementation | Acceptance check |
+| Design area | GNOME 7.0 implementation | Acceptance check |
 |---|---|---|
-| Indigo/blue-violet identity | `DRAKONIS-Night` GTK/XFWM theme and branded wallpaper | Verify readable text and active-state contrast at 1920×1080 and a smaller display |
-| Cyan and violet accents | GTK selection, focus, hover, and progress colors | Keyboard focus remains visible; error states remain reserved for warnings |
-| Graphite terminal | `/etc/xdg/xfce4/terminal/terminalrc` with dark background and 86% background darkness | Confirm terminal text remains legible over the wallpaper |
-| Large left-side mark | `branding/drakonis-wallpaper.png` installed as the desktop background | Windows do not obscure the primary working area unnecessarily |
-| Branded login | LightDM greeter uses `Drakonis-Login.png`, the supplied 2560×1440 artwork, DRAKONIS-Night theme, manual username/password fields, and XFCE session selector | Login is boot-tested in the guest; LightDM GTK controls the final input-card geometry |
-| Profiles launcher | Existing XFCE launcher plus network, web, forensic, reverse, exploitation, and optional `redteam` profiles | Profile installation reports unavailable packages instead of using untrusted sources |
-| Utility screens | Security Center, Network Tools, Help Center, Themes Manager, First Run, and Power & Session terminal utilities with Applications entries | No automatic target discovery; destructive power actions require explicit confirmation |
-| Interactive control center | GTK3/PyGObject application with searchable sidebar, cards, keyboard navigation, live command results, and 17 screen destinations; v0.4 adds operational monitor, workspace, settings, notifications, and software cards | Verify at 1920×1080 and 1280×720 in the VM; actions remain local and authorization-scoped |
-| Safety boundary | Isolation helper, legal-use notice, no automatic discovery, no persistence or evasion helpers | Isolation enable/disable and first boot are tested in a disposable lab |
+| Indigo/blue-violet identity | `DRAKONIS-Night` GTK theme, GNOME dark color scheme, and branded wallpaper | Verify readable text and active-state contrast at 1920×1080 and 1280×720 |
+| Cyan and violet accents | GTK selection, focus, hover, and progress colors | Keyboard focus remains visible; warning states remain distinct |
+| Graphite terminal | GNOME Terminal profile with dark palette and transparent-style panel treatment | Confirm terminal text remains legible over the wallpaper |
+| Dragon mark | Rights-cleared Drakonis wallpaper and login artwork | Mark remains visible without obscuring working windows |
+| Branded login | GDM3 with Drakonis artwork and GNOME session | Boot-test GDM3 in the guest; verify manual username/password login |
+| Centered dock | Plank autostarted inside GNOME, with GNOME Overview retained for workspace management | Dock launches Control Center, terminal, files, and Firefox |
+| Profiles launcher | GNOME applications entries plus network, web, forensic, reverse, exploitation, and optional `redteam` profiles | Profile installer reports unavailable packages rather than using untrusted sources |
+| Utility screens | Security Center, Network Tools, Help Center, Themes Manager, First Run, and Power & Session utilities | No automatic target discovery; destructive power actions require explicit confirmation |
+| Interactive control center | GTK3/PyGObject app with searchable sidebar, cards, keyboard navigation, local command results, and 17 destinations | Verify at 1920×1080 and 1280×720 in a graphical VM |
+| Safety boundary | Isolation helper, legal-use notice, no automatic discovery, persistence, or evasion helpers | Isolation and first boot are tested in a disposable lab |
 
-v0.5 keeps the XFCE edition and adds the supplied login artwork plus QEMU x86, QEMU utilities, GUI support, and OVMF packages. KVM remains a host/kernel capability exposed through `/dev/kvm`; installing QEMU packages cannot create KVM on a host that lacks virtualization support.
+## GNOME session policy
+
+The image uses Debian Stable's `task-gnome-desktop`, GNOME Shell, GDM3, and NetworkManager. Four workspaces are configured on first login. The shell script applies the Drakonis theme through `gsettings`; Plank provides the centered dock shown in the supplied design while GNOME Overview remains available through the standard Activities entry and keyboard shortcut.
 
 ## Red-team boundary
 
 The `redteam` profile is intended for owned systems, written-scope engagements, CTFs, and isolated training ranges. It uses Debian package resolution only. It does not add Kali, BlackArch, or arbitrary third-party APT sources, and it does not package credential theft, covert persistence, evasion, destructive payloads, or automated external targeting.
 
-## v6.0 interactive desktop layer
+## Validation boundary
 
-The v6.0 image adds Plank launchers for the Drakonis Control Center, terminal, file manager, and Firefox, with XFCE autostart for the desktop shell. The shell applies the DRAKONIS-Night identity, preserves XFCE workspaces, and starts the centered Dock. The existing GTK/PyGObject Control Center remains the primary interactive dashboard, while the Dock and desktop shell provide the visual entry points described by the design collection.
-
-The v6.0 ISO was smoke-tested through ISOLINUX BIOS boot and GNU GRUB UEFI boot. Visual acceptance remains a graphical-VM review item at common resolutions.
+The ISO must be smoke-tested through BIOS and UEFI boot. Visual acceptance requires a graphical VM or physical test machine; serial boot output alone is not sufficient to certify GDM3 or GNOME rendering.

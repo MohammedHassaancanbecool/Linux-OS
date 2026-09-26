@@ -10,3 +10,7 @@ sudo ./scripts/build-iso.sh
 ```
 
 If the host still invokes the legacy Contents fetch, upgrade live-build from the supported Debian package or apply the distribution's current live-build patch. Do not bypass signature checks or replace Debian mirrors with untrusted sources. After a successful ISO build, follow `docs/RELEASE-CHECKLIST.md` before exporting an OVA.
+
+## Root filesystem compression
+
+The Ubuntu `live-build 3.0~a57` helper hard-codes `xz` for Debian root filesystem images even when `LB_COMPRESSION` is set to `gzip`. `scripts/build-iso.sh` installs a repository-local override during the build so the configured `--compression gzip` value is honored. This keeps the build within practical CI/sandbox time while preserving the normal SquashFS filesystem and ISO boot path.

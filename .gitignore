@@ -9,12 +9,16 @@ config/chroot
 config/common
 config/source
 artifacts/build.log
+artifacts/build-wrapper.log
+artifacts/qemu-*.log
 artifacts/*.iso
 artifacts/qemu-OVMF_VARS.fd
 *.hybrid.iso
 *.iso
 *.zsync.xz
 *.zsync
+*.zsync.gz
+.live-build/
 __pycache__/
 docs/reference/*.pdf
 binary.contents

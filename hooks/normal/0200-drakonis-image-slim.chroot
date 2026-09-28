@@ -1,0 +1,8 @@
+#!/bin/sh
+set -eu
+# Keep English and Arabic in the live image; remove other locale catalogs.
+find /usr/share/locale -mindepth 1 -maxdepth 1 \
+  ! -name 'en' ! -name 'en_*' ! -name 'ar' ! -name 'ar_*' \
+  -exec rm -rf {} +
+# Package archives are not needed after the live image is assembled.
+rm -f /var/cache/apt/archives/*.deb /var/cache/apt/archives/partial/* 2>/dev/null || true

@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=GNOME Help (Web)
+Comment=Open the official GNOME Help website
+Exec=/usr/bin/xdg-open https://help.gnome.org/
+Icon=help-browser
+Terminal=false
+Categories=GNOME;Documentation;Utility;
+StartupNotify=true

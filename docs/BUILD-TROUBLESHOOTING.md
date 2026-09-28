@@ -13,4 +13,4 @@ If the host still invokes the legacy Contents fetch, upgrade live-build from the
 
 ## Root filesystem compression
 
-The Ubuntu `live-build 3.0~a57` helper hard-codes `xz` for Debian root filesystem images even when `LB_COMPRESSION` is set to `gzip`. `scripts/build-iso.sh` installs a repository-local override during the build so the configured `--compression gzip` value is honored. This keeps the build within practical CI/sandbox time while preserving the normal SquashFS filesystem and ISO boot path.
+The release uses `xz` for Debian root filesystem images to keep the ISO below common release-asset limits. `scripts/build-iso.sh` installs a repository-local override so the configured `LB_COMPRESSION` value is honored by the Ubuntu-packaged `live-build` helper. XZ takes longer to build than gzip but provides materially better compression while preserving the normal SquashFS filesystem and ISO boot path.

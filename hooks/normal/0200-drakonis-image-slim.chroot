@@ -4,5 +4,7 @@ set -eu
 find /usr/share/locale -mindepth 1 -maxdepth 1 \
   ! -name 'en' ! -name 'en_*' ! -name 'ar' ! -name 'ar_*' \
   -exec rm -rf {} +
+# Replace the large offline GNOME help catalog and viewer with a web shortcut.
+apt-get purge -y gnome-user-docs yelp yelp-xsl libyelp0 >/dev/null 2>&1 || true
 # Package archives are not needed after the live image is assembled.
 rm -f /var/cache/apt/archives/*.deb /var/cache/apt/archives/partial/* 2>/dev/null || true

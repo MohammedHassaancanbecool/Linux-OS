@@ -4,6 +4,11 @@ cat <<'EOF'
 
 Welcome to Drakonis Linux 7.0, a Debian GNOME environment for authorized defensive analysis.
 
+GNOME documentation
+  The offline GNOME Help catalog was removed to reduce the ISO size.
+  Open the official website from the Applications menu: GNOME Help (Web)
+  Official URL: https://help.gnome.org/
+
 Safety
   mll-network-isolation enable    block non-loopback output
   mll-network-isolation status    inspect isolation rules
@@ -13,7 +18,7 @@ Desktop utilities
   drakonis-security-center        review local security state
   drakonis-network-tools          inspect local interfaces and sockets
   drakonis-themes-manager         select the installed visual theme
-  drakonis-power-session          lock or end the GNOME session safely
+  drakonis-power-session           lock or end the GNOME session safely
 
 Use only systems, accounts, traffic, and data that you own or are explicitly authorized to assess.
 Press Enter to close...

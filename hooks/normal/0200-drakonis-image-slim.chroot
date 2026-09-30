@@ -9,5 +9,22 @@ find /usr/share/locale -mindepth 1 -maxdepth 1 \
 apt-get purge -y gnome-user-docs yelp yelp-xsl libyelp0 \
   firefox-esr gnome-software gnome-tweaks gnome-disk-utility \
   file-roller gnome-screenshot >/dev/null 2>&1 || true
+# Ensure the web replacement is present even when live-build follows a
+# symlinked config/includes.chroot tree, and remove leftover documentation.
+rm -rf /usr/share/yelp /usr/share/yelp-xsl /usr/share/doc/gnome-user-docs \
+  /usr/share/doc/yelp /usr/share/doc/yelp-xsl
+rm -f /usr/share/applications/yelp.desktop /usr/share/man/man1/yelp.1.gz \
+  /usr/share/pkgconfig/yelp-xsl.pc
+cat > /usr/share/applications/drakonis-gnome-help-web.desktop <<'EOF'
+[Desktop Entry]
+Type=Application
+Name=GNOME Help (Web)
+Comment=Open the official GNOME Help website
+Exec=/usr/bin/xdg-open https://help.gnome.org/
+Icon=help-browser
+Terminal=false
+Categories=GNOME;Documentation;Utility;
+StartupNotify=true
+EOF
 # Package archives are not needed after the live image is assembled.
 rm -f /var/cache/apt/archives/*.deb /var/cache/apt/archives/partial/* 2>/dev/null || true

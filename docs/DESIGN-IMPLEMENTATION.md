@@ -9,6 +9,7 @@ This document maps the supplied Debian XFCE design brief to the current image im
 | Graphite terminal | `/etc/xdg/xfce4/terminal/terminalrc` with dark background and 86% background darkness | Confirm terminal text remains legible over the wallpaper |
 | Large left-side mark | `branding/drakonis-wallpaper.png` installed as the desktop background | Windows do not obscure the primary working area unnecessarily |
 | Branded login | LightDM greeter uses `Drakonis-Login.png`, the supplied 2560×1440 artwork, DRAKONIS-Night theme, manual username/password fields, and XFCE session selector | Login is boot-tested in the guest; LightDM GTK controls the final input-card geometry |
+| Desktop shell | XFCE remains the base session; a Drakonis autostart shell applies the theme, wallpaper, and starts a Plank dock with Control Center, Thunar, terminal, browser, and Vault launchers | Verify one dock and one compatibility panel at 1280×720 and 1920×1080 in a graphical guest |
 | Profiles launcher | Existing XFCE launcher plus network, web, forensic, reverse, exploitation, and optional `redteam` profiles | Profile installation reports unavailable packages instead of using untrusted sources |
 | Utility screens | Security Center, Network Tools, Help Center, Themes Manager, First Run, and Power & Session terminal utilities with Applications entries | No automatic target discovery; destructive power actions require explicit confirmation |
 | Interactive control center | GTK3/PyGObject application with searchable sidebar, cards, keyboard navigation, live command results, and 17 screen destinations; v0.4 adds operational monitor, workspace, settings, notifications, and software cards | Verify at 1920×1080 and 1280×720 in the VM; actions remain local and authorization-scoped |
@@ -19,9 +20,3 @@ v0.5 keeps the XFCE edition and adds the supplied login artwork plus QEMU x86, Q
 ## Red-team boundary
 
 The `redteam` profile is intended for owned systems, written-scope engagements, CTFs, and isolated training ranges. It uses Debian package resolution only. It does not add Kali, BlackArch, or arbitrary third-party APT sources, and it does not package credential theft, covert persistence, evasion, destructive payloads, or automated external targeting.
-
-## v6.0 interactive desktop layer
-
-The v6.0 image adds Plank launchers for the Drakonis Control Center, terminal, file manager, and Firefox, with XFCE autostart for the desktop shell. The shell applies the DRAKONIS-Night identity, preserves XFCE workspaces, and starts the centered Dock. The existing GTK/PyGObject Control Center remains the primary interactive dashboard, while the Dock and desktop shell provide the visual entry points described by the design collection.
-
-The v6.0 ISO was smoke-tested through ISOLINUX BIOS boot and GNU GRUB UEFI boot. Visual acceptance remains a graphical-VM review item at common resolutions.

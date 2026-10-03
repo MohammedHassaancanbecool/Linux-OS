@@ -1,0 +1,14 @@
+[Plank]
+Alignment='3'
+AutoPullData=false
+DockItems='drakonis-control-center.dockitem;;thunar.dockitem;;xfce4-terminal.dockitem;;firefox-esr.dockitem;;drakonis-vault-ui.dockitem'
+HideMode='1'
+IconSize=48
+ItemsAlignment='3'
+Monitor=''
+Position='3'
+RaiseOnDrawers=true
+Theme='Default'
+TooltipsEnabled=true
+ZoomEnabled=true
+ZoomPercent=125
